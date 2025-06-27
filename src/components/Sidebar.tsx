@@ -35,17 +35,17 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-64 bg-white border-r border-gray-200 h-screen flex flex-col">
-      <div className="p-4 border-b border-gray-200">
-        <h2 className="text-lg font-semibold text-gray-800">Main Navigator</h2>
+    <div className="w-64 bg-sidebar border-r border-sidebar-border h-screen flex flex-col">
+      <div className="p-4 border-b border-sidebar-border">
+        <h2 className="text-lg font-semibold text-sidebar-foreground">Main Navigator</h2>
       </div>
       
       <div className="p-4">
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-sidebar-foreground/60 h-4 w-4" />
           <Input 
             placeholder="Type search value here..." 
-            className="pl-10 text-sm"
+            className="pl-10 text-sm bg-sidebar-accent border-sidebar-border text-sidebar-foreground placeholder:text-sidebar-foreground/60"
           />
         </div>
       </div>
@@ -57,8 +57,8 @@ const Sidebar = () => {
               key={index}
               variant={item.active ? "secondary" : "ghost"}
               className={cn(
-                "w-full justify-start text-left font-normal",
-                item.active && "bg-blue-50 text-blue-700"
+                "w-full justify-start text-left font-normal text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                item.active && "bg-sidebar-accent text-sidebar-accent-foreground"
               )}
             >
               <item.icon className="mr-3 h-4 w-4" />
@@ -68,7 +68,7 @@ const Sidebar = () => {
 
           <Collapsible open={isTelemeryOpen} onOpenChange={setIsTelemeryOpen}>
             <CollapsibleTrigger asChild>
-              <Button variant="ghost" className="w-full justify-between text-left font-normal">
+              <Button variant="ghost" className="w-full justify-between text-left font-normal text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
                 <div className="flex items-center">
                   <Database className="mr-3 h-4 w-4" />
                   Telemetry
@@ -79,7 +79,7 @@ const Sidebar = () => {
             <CollapsibleContent className="ml-7 space-y-1">
               <Collapsible>
                 <CollapsibleTrigger asChild>
-                  <Button variant="ghost" className="w-full justify-between text-left font-normal text-sm">
+                  <Button variant="ghost" className="w-full justify-between text-left font-normal text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
                     Entries
                     <ChevronDown className="h-3 w-3" />
                   </Button>
@@ -91,8 +91,8 @@ const Sidebar = () => {
                       variant={item.active ? "secondary" : "ghost"}
                       size="sm"
                       className={cn(
-                        "w-full justify-start text-left font-normal",
-                        item.active && "bg-blue-50 text-blue-700"
+                        "w-full justify-start text-left font-normal text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                        item.active && "bg-sidebar-primary text-sidebar-primary-foreground"
                       )}
                     >
                       {item.label}
@@ -103,19 +103,19 @@ const Sidebar = () => {
             </CollapsibleContent>
           </Collapsible>
 
-          <Button variant="ghost" className="w-full justify-start text-left font-normal">
+          <Button variant="ghost" className="w-full justify-start text-left font-normal text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
             <Settings className="mr-3 h-4 w-4" />
             Setups
           </Button>
 
-          <Button variant="ghost" className="w-full justify-start text-left font-normal">
+          <Button variant="ghost" className="w-full justify-start text-left font-normal text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
             <FileText className="mr-3 h-4 w-4" />
             ElogBook
           </Button>
 
           <Collapsible open={isSystemOpen} onOpenChange={setIsSystemOpen}>
             <CollapsibleTrigger asChild>
-              <Button variant="ghost" className="w-full justify-between text-left font-normal">
+              <Button variant="ghost" className="w-full justify-between text-left font-normal text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
                 <div className="flex items-center">
                   <Settings className="mr-3 h-4 w-4" />
                   System Administration
@@ -125,7 +125,7 @@ const Sidebar = () => {
             </CollapsibleTrigger>
           </Collapsible>
 
-          <Button variant="ghost" className="w-full justify-start text-left font-normal">
+          <Button variant="ghost" className="w-full justify-start text-left font-normal text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
             <div className="flex items-center">
               <div className="w-4 h-4 bg-blue-500 rounded-full mr-3 flex items-center justify-center">
                 <span className="text-white text-xs">?</span>
